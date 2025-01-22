@@ -1,0 +1,132 @@
+:root {
+    --default-font: 'Poppins', sans-serif;
+    --heading-font: 'Poppins', sans-serif;
+    --nav-font: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--default-font);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h2, h3 {
+    font-family: var(--heading-font);
+}
+
+.navbar {
+    font-family: var(--nav-font);
+    position: fixed;
+    letter-spacing: 1px;
+}
+
+.navbar-nav {
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.navbar-nav .nav-link {
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-right: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.navbar-brand img {
+    width: 30px;
+    height: 30px;
+}
+
+.background {
+    background-image: url('/assets/images/dream.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.background h2  {
+    font-size: 50px;
+    font-weight: 500;
+    margin-left: 7rem;
+}
+.background p  {
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 7rem;
+    margin-top: 5rem;
+}
+
+.background .btn-primary {
+    font-size: 16px;
+    font-family: var(--default-font);
+    margin-left: 7rem;
+}
+
+.product-section {
+    font-family: var(--default-font);
+    height: 90vh;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.card-price {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.explore-section {
+    font-family: var(--default-font);
+    height: 100vh;
+}
+
+/* scroll */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+ 
+.scroll-to-top:hover {
+    background-color: #0056b3;
+}
+ 
+.login-card {
+    max-width: 400px;
+    margin: 0 auto;
+}
