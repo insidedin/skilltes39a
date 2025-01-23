@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="px-1 side nav-item nav-link {{ Request::is('suplier') ? 'active' : '' }}">
+                    <a href="/suplier" class="px-1 side nav-item nav-link {{ Request::is('suplier') ? 'active' : '' }}">
                         <i class="bi bi-cart4 mx-2"></i> Suplier
                     </a>
                 </li>
