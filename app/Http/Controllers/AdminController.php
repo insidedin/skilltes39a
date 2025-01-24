@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Admin;
-use App\Models\Suplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -10,36 +9,36 @@ class AdminController extends Controller
 {
     public function admin()
     {
-        $data = Suplier::all();
-        return view('suplier.suplier', compact('data'));
+        $data = Admin::all();
+        return view('admin.admin', compact('data'));
     }
 
     public function create()
     {
-        return view('suplier.create');
+        return view('admin.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name_suplier' => 'required',
-            'telp' => 'required',
-            'tgl_terdaftar' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
 
-        Suplier::create([
+        Admin::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('suplier.suplier')->with('message', 'Suplier created successfully.');
+        return redirect()->route('admin.admin')->with('message', 'Admin created successfully.');
     }
 
     public function edit($id)
     {
-        $suplier = Suplier::findOrFail($id);
-        return view('suplier.edit', compact('suplier'));
+        $admin = Admin::findOrFail($id);
+        return view('admin.edit', compact('admin'));
     }
 
     public function update(Request $request, $id)
@@ -50,21 +49,21 @@ class AdminController extends Controller
             'password' => 'nullable|min:6',
         ]);
 
-        $suplier = Admin::findOrFail($id);
-        $suplier->update([
+        $admin = Admin::findOrFail($id);
+        $admin->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
         ]);
 
-        return redirect()->route('suplier.suplier')->with('message', 'Suplier updated successfully.');
+        return redirect()->route('admin.admin')->with('message', 'Admin updated successfully.');
     }
 
     public function destroy($id)
     {
-        $suplier = Admin::findOrFail($id);
-        $suplier->delete();
+        $admin= Admin::findOrFail($id);
+        $admin->delete();
 
-        return redirect()->route('suplier.suplier')->with('message', 'Suplier deleted successfully.');
+        return redirect()->route('admin.admin')->with('message', 'Admin deleted successfully.');
     }
 }

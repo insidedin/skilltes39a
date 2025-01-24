@@ -27,7 +27,7 @@ Route::put('/admin/{id}', [AdminController::class, 'update'])->name('admin.updat
 Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
 // Route untuk CRUD Suplier
-Route::get('/suplier', [SuplierController::class, 'suplier'])->name('suplier');
+Route::get('/suplier', [SuplierController::class, 'suplier'])->name('suplier.suplier');
 Route::get('/suplier/create', [SuplierController::class, 'create'])->name('suplier.create');
 Route::post('/suplier', [SuplierController::class, 'store'])->name('suplier.store');
 Route::get('/suplier/{id}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');
