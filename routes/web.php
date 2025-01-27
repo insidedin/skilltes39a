@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SuplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PelangganController;
 
 
 Route::get('/', function () {
@@ -33,3 +34,11 @@ Route::post('/suplier', [SuplierController::class, 'store'])->name('suplier.stor
 Route::get('/suplier/{id}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');
 Route::put('/suplier/{id}', [SuplierController::class, 'update'])->name('suplier.update');
 Route::delete('/suplier/{id}', [SuplierController::class, 'destroy'])->name('suplier.destroy');
+
+// Route untuk CRUD Pelanggan
+Route::get('/pelanggan', [PelangganController::class, 'pelanggan'])->name('pelanggan.pelanggan');
+Route::get('/pelanggan/create', action: [PelangganController::class, 'create'])->name('pelanggan.create');
+Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
+Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('pelanggan.edit');
+Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
+Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');

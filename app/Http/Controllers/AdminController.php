@@ -43,21 +43,29 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:admins,email,' . $id,
-            'password' => 'nullable|min:6',
-        ]);
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email|unique:admins,email,' . $id,
+        'password' => 'nullable|min:6', // Password opsional
+    ]);
 
-        $admin = Admin::findOrFail($id);
-        $admin->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+    $admin = Admin::findOrFail($id);
 
-        return redirect()->route('admin.admin')->with('message', 'Admin updated successfully.');
+    // Update data admin
+    $admin->name = $request->name;
+    $admin->email = $request->email;
+
+    // Periksa apakah password diisi, lalu update dengan enkripsi
+    if ($request->password) {
+        $admin->password = Hash::make($request->password);
     }
+
+    // Simpan perubahan
+    $admin->save();
+
+    return redirect()->route('admin.admin')->with('message', 'Admin updated successfully.');
+    }
+
 
     public function destroy($id)
     {
