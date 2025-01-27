@@ -17,28 +17,35 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
+// Route untuk dashboard
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-// Route untuk CRUD Admin
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin.admin');
-Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
-Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
-Route::put('/admin/{id}', [AdminController::class, 'update'])->name('admin.update');
-Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+// Route Group untuk Admin
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'admin'])->name('admin');
+    Route::get('/create', [AdminController::class, 'create'])->name('create');
+    Route::post('/', [AdminController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [AdminController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [AdminController::class, 'update'])->name('update');
+    Route::delete('/{id}', [AdminController::class, 'destroy'])->name('destroy');
+});
 
-// Route untuk CRUD Suplier
-Route::get('/suplier', [SuplierController::class, 'suplier'])->name('suplier.suplier');
-Route::get('/suplier/create', [SuplierController::class, 'create'])->name('suplier.create');
-Route::post('/suplier', [SuplierController::class, 'store'])->name('suplier.store');
-Route::get('/suplier/{id}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');
-Route::put('/suplier/{id}', [SuplierController::class, 'update'])->name('suplier.update');
-Route::delete('/suplier/{id}', [SuplierController::class, 'destroy'])->name('suplier.destroy');
+// Route Group untuk Suplier
+Route::prefix('suplier')->name('suplier.')->group(function () {
+    Route::get('/', [SuplierController::class, 'suplier'])->name('suplier');
+    Route::get('/create', [SuplierController::class, 'create'])->name('create');
+    Route::post('/', [SuplierController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [SuplierController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [SuplierController::class, 'update'])->name('update');
+    Route::delete('/{id}', [SuplierController::class, 'destroy'])->name('destroy');
+});
 
-// Route untuk CRUD Pelanggan
-Route::get('/pelanggan', [PelangganController::class, 'pelanggan'])->name('pelanggan.pelanggan');
-Route::get('/pelanggan/create', action: [PelangganController::class, 'create'])->name('pelanggan.create');
-Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
-Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('pelanggan.edit');
-Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
-Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
+// Route Group untuk Pelanggan
+Route::prefix('pelanggan')->name('pelanggan.')->group(function () {
+    Route::get('/', [PelangganController::class, 'pelanggan'])->name('pelanggan');
+    Route::get('/create', [PelangganController::class, 'create'])->name('create');
+    Route::post('/', [PelangganController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [PelangganController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [PelangganController::class, 'update'])->name('update');
+    Route::delete('/{id}', [PelangganController::class, 'destroy'])->name('destroy');
+});

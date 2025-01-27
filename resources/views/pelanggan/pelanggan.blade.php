@@ -65,13 +65,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @forelse ($pelanggans as $pelanggan)
+                            @forelse ($pelanggans as $pelanggan)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $suplier->name_pelanggan }}</td>
-                                    <td>{{ $suplier->email }}</td>
-                                    <td>{{ $suplier->telp}}</td>
-                                    <td>{{ $suplier->status }}</td>
+                                    <td>{{ $pelanggan->name_pelanggan }}</td>
+                                    <td>{{ $pelanggan->email }}</td>
+                                    <td>{{ $pelanggan->telp}}</td>
                                     <td class="text-center">
                                         <a href="{{ route('pelanggan.edit', $pelanggan->id) }}" class="btn btn-warning btn-sm">
                                             <i class="bi bi-pencil"></i> Edit
@@ -89,7 +88,7 @@
                                 <tr>
                                     <td colspan="6" class="text-center">Tidak ada data Pelanggan</td>
                                 </tr>
-                            @endforelse --}}
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

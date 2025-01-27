@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="px-1 side nav-item nav-link {{ Request::is('customer') ? 'active' : '' }}">
+                    <a href="/pelanggan" class="px-1 side nav-item nav-link {{ Request::is('pelanggan') ? 'active' : '' }}">
                         <i class="bi bi-house-fill mx-2"></i> Pelanggan
                     </a>
                 </li>
