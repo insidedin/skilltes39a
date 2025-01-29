@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
-@section('title', 'Daftar Pelanggan')
+@section('title', 'Daftar Barang')
 
 @section('content')
 <div class="container-fluid">
-    <h4 class="mb-3">Daftar Pelanggan</h4>
+    <h4 class="mb-3">Daftar Barang</h4>
     <nav aria-label="breadcrumb" class="mb-1">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Daftar Pelanggan</li>
+            <li class="breadcrumb-item active" aria-current="page">Daftar Barang</li>
         </ol>
     </nav>
 
@@ -17,10 +17,10 @@
                 <div class="card-header">
                     <div class="d-flex">
                         <div class="pt-1 w-100">
-                            <strong>Daftar Pelanggan</strong>
+                            <strong>Daftar Barang</strong>
                         </div>
                         <div class="w-100 text-end">
-                            <a href="{{ route('pelanggan.pelanggan') }}" class="btn btn-outline-primary btn-sm">
+                            <a href="{{ route('barang.barang') }}" class="btn btn-outline-primary btn-sm">
                                 Refresh Data <i class="bi bi-arrow-clockwise"></i>
                             </a>
                         </div>
@@ -40,12 +40,12 @@
 
                     <div class="mx-3 my-4 row">
                         <div class="col-6">
-                            <a href="{{ route('pelanggan.create') }}" class="btn btn-primary btn-sm">Tambah Data <i class="fa-solid fa-plus"></i></a>
+                            <a href="{{ route('barang.create') }}" class="btn btn-primary btn-sm">Tambah Barang <i class="fa-solid fa-plus"></i></a>
                         </div>
                         <div class="col-6">
-                            <form action="{{ route('pelanggan.pelanggan') }}" method="GET">
+                            <form action="{{ route('barang.barang') }}" method="GET">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="search" placeholder="Cari Pelanggan ..." value="{{ request('search') }}">
+                                    <input type="text" class="form-control" name="search" placeholder="Cari Barang ..." value="{{ request('search') }}">
                                     <button class="btn btn-primary" type="submit">
                                         <i class="bi bi-search"></i> Search
                                     </button>
@@ -57,25 +57,27 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Telp</th>
+                                <th>Kode</th>
+                                <th>Nama Barang</th>
+                                <th>Suplier</th>
+                                <th>Harga</th>
+                                <th>Stock</th>
+                                <th>Gambar</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($pelanggans as $pelanggan)
+                            {{-- @forelse ($barangs as $barang)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $pelanggan->name_pelanggan }}</td>
-                                    <td>{{ $pelanggan->email }}</td>
-                                    <td>{{ $pelanggan->telp}}</td>
+                                    <td>{{ $barang->name_suplier }}</td>
+                                    <td>{{ $barang->telp }}</td>
+                                    <td>{{ $barang->tgl_terdaftar }}</td>
+                                    <td>{{ $barang->status }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('pelanggan.edit', $pelanggan->id) }}" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('suplier.edit', $suplier->id) }}" class="btn btn-warning btn-sm">
                                             <i class="bi bi-pencil"></i> Edit
                                         </a>
-                                        <form action="{{ route('pelanggan.destroy', $pelanggan->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus Data ???');">
+                                        <form action="{{ route('suplier.destroy', $suplier->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus Data ???');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">
@@ -86,9 +88,9 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="text-center">Tidak ada data Pelanggan</td>
+                                    <td colspan="6" class="text-center">Tidak ada data suplier</td>
                                 </tr>
-                            @endforelse
+                            @endforelse --}}
                         </tbody>
                     </table>
                 </div>

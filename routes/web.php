@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SuplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PelangganController;
 
 
@@ -48,4 +49,14 @@ Route::prefix('pelanggan')->name('pelanggan.')->group(function () {
     Route::get('/{id}/edit', [PelangganController::class, 'edit'])->name('edit');
     Route::put('/{id}', [PelangganController::class, 'update'])->name('update');
     Route::delete('/{id}', [PelangganController::class, 'destroy'])->name('destroy');
+});
+
+// Route Group untuk Barang
+Route::prefix('barang')->name('barang.')->group(function () {
+    Route::get('/', [BarangController::class, 'barang'])->name('barang');
+    Route::get('/create', [BarangController::class, 'create'])->name('create');
+    Route::post('/', [BarangController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [BarangController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [BarangController::class, 'update'])->name('update');
+    Route::delete('/{id}', [BarangController::class, 'destroy'])->name('destroy');
 });

@@ -68,20 +68,20 @@
                         <i class="bi bi-person-fill mx-2"></i>Data Admin
                     </a>
                 </li>
-                <div class="px-3 text-decoration-none"><strong>Barang</strong></div>
+                <div class="px-3 text-decoration-none"><strong>Data Barang</strong></div>
                 <li>
-                    <a href="" class="px-4 side nav-item nav-link {{ Request::is('stock') ? 'active' : '' }}">
-                        <i class="bi bi-file-bar-graph mx-2"></i>Stock
+                    <a href="/barang" class="px-4 side nav-item nav-link {{ Request::is('barang') ? 'active' : '' }}">
+                        <i class="bi bi-file-bar-graph mx-2"></i>Barang
                     </a>
                 </li>
                 <li>
-                    <a href="" class="px-4 side nav-item nav-link {{ Request::is('barang-masuk') ? 'active' : '' }}">
-                        <i class="bi bi-arrow-right mx-2"></i>Barang Masuk
+                    <a href="/stokmasuk" class="px-4 side nav-item nav-link {{ Request::is('stock-masuk') ? 'active' : '' }}">
+                        <i class="bi bi-arrow-right mx-2"></i>Stok Masuk
                     </a>
                 </li>
                 <li>
-                    <a href="" class="px-4 side nav-item nav-link {{ Request::is('barang-keluar') ? 'active' : '' }}">
-                        <i class="bi bi-arrow-left mx-2"></i> Barang Keluar
+                    <a href="/stokkeluar" class="px-4 side nav-item nav-link {{ Request::is('stock-keluar') ? 'active' : '' }}">
+                        <i class="bi bi-arrow-left mx-2"></i> Stok Keluar
                     </a>
                 </li>
                 <li>
