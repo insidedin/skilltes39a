@@ -84,13 +84,13 @@
             <div class="col-lg-3 col-md-3 mb-4">
                 <div class="card" style="background-color: rgb(228, 192, 192)">
                     <div class="card-body">
-                        <h6 class="rounded p-2 text-dark" style="background-color: #ffff">Total Stok</h6>
+                        <h6 class="rounded p-2 text-dark" style="background-color: #ffff">Total Barang</h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <i class="bi bi-bag-check custom-icon-size text-light"></i>
-                            <h3 class="mx-2 text-light">97</h3>
+                            <h3 class="mx-2 text-light">{{ $totalBarang }}</h3>
                         </div>
                         <div class="text-end mt-2">
-                            <a href="{{ url('/stok') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
+                            <a href="{{ url('/barang') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>
@@ -101,11 +101,11 @@
                         <h6 class="rounded p-2 text-dark" style="background-color: #ffff">Total Pendapatan</h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <i class="bi bi-people-fill custom-icon-size text-light"></i>
-                            <h3 class="mx-2 text-light">75</h3>
+                            <h3 class="mx-2 text-light"></h3>
                             {{-- <h3 class="mx-2 text-light">{{ 'Rp ' . number_format($totalPendapatam, 0, ',', '.') }}</h3> --}}
                         </div>
                         <div class="text-end mt-2">
-                            <a href="{{ url('/barang-keluar') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
+                            <a href="#" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>

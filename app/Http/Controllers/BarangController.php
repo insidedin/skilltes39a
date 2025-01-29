@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\Suplier;
+use Illuminate\Support\Facades\Storage;
+
 
 class BarangController extends Controller
 {
-    // Tampilkan daftar barang
+     // Tampilkan daftar barang
     public function barang()
     {
-        $barangs = Barang::with('supliers')->get(); // Ambil barang beserta data suplier
+        $barangs = Barang::with('suplier')->get(); // Perbaikan relasi
         return view('barang.barang', compact('barangs'));
     }
 
@@ -67,17 +69,17 @@ class BarangController extends Controller
             'gambar' => 'nullable|image|max:2048',
         ]);
 
-        // // Update gambar jika ada
-        // if ($request->hasFile('gambar')) {
-        //     // Hapus gambar lama jika ada
-        //     if ($barang->gambar) {
-        //         \Storage::disk('public')->delete($barang->gambar);
-        //     }
-        //     $path = $request->file('gambar')->store('images/barang', 'public');
-        //     $validatedData['gambar'] = $path;
-        // }
+        // Update gambar jika ada
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($barang->gambar) {
+                Storage::disk('public')->delete($barang->gambar);
+            }
+            $path = $request->file('gambar')->store('images/barang', 'public');
+            $validatedData['gambar'] = $path;
+        }
 
-        // $barang->update($validatedData);
+        $barang->update($validatedData); // Perbaikan: Pastikan data diupdate
 
         return redirect()->route('barang.barang')->with('success', 'Barang berhasil diperbarui.');
     }
@@ -87,12 +89,12 @@ class BarangController extends Controller
     {
         $barang = Barang::findOrFail($id);
 
-        // // Hapus gambar jika ada
-        // if ($barang->gambar) {
-        //     \Storage::disk('public')->delete($barang->gambar);
-        // }
+        // Hapus gambar jika ada
+        if ($barang->gambar) {
+            Storage::disk('public')->delete($barang->gambar);
+        }
 
-        // $barang->delete();
+        $barang->delete(); // Perbaikan: Pastikan barang benar-benar dihapus
 
         return redirect()->route('barang.barang')->with('success', 'Barang berhasil dihapus.');
     }

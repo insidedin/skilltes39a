@@ -67,17 +67,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @forelse ($barangs as $barang)
+                            @forelse ($barangs as $barang)
                                 <tr>
-                                    <td>{{ $barang->name_suplier }}</td>
-                                    <td>{{ $barang->telp }}</td>
-                                    <td>{{ $barang->tgl_terdaftar }}</td>
-                                    <td>{{ $barang->status }}</td>
+                                    <td>{{ $barang->kode_barang }}</td>
+                                    <td>{{ $barang->nama_barang }}</td>
+                                    <td>{{ $barang->suplier->name_suplier ?? '-' }}</td>
+                                    <td>Rp{{ number_format($barang->harga, 0, ',', '.') }}</td>
+                                    <td>{{ $barang->stok_awal }}</td>
+                                    <td>
+                                        @if ($barang->gambar)
+                                            <img src="{{ asset('storage/' . $barang->gambar) }}" alt="Gambar Barang" width="50">
+                                        @else
+                                            Tidak ada gambar
+                                        @endif
+                                    </td>
                                     <td class="text-center">
-                                        <a href="{{ route('suplier.edit', $suplier->id) }}" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-warning btn-sm">
                                             <i class="bi bi-pencil"></i> Edit
                                         </a>
-                                        <form action="{{ route('suplier.destroy', $suplier->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus Data ???');">
+                                        <form action="{{ route('barang.destroy', $barang->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus Data ???');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">
@@ -88,9 +96,9 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="text-center">Tidak ada data suplier</td>
+                                    <td colspan="7" class="text-center">Tidak ada data barang</td>
                                 </tr>
-                            @endforelse --}}
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
