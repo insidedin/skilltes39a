@@ -10,7 +10,7 @@ class Suplier extends Model
         'name_suplier', 'telp', 'tgl_terdaftar', 'status',
     ];
 
-    //relasi ke tabel barangs
+    //relasi ke tabel barangs (mengirim id suplier kedalam tabel barang)
     public function barangs()
     {
         return $this->hasMany(Barang::class);

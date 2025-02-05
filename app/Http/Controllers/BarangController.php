@@ -13,14 +13,14 @@ class BarangController extends Controller
      // Tampilkan daftar barang
     public function barang()
     {
-        $barangs = Barang::with('suplier')->get(); // Perbaikan relasi
+        $barangs = Barang::with('suplier')->get(); // Relasi mengambil data nama suplier dari table suplier
         return view('barang.barang', compact('barangs'));
     }
 
     // Form tambah barang
     public function create()
     {
-        $supliers = Suplier::all(); // Ambil semua data suplier untuk dropdown
+        $supliers = Suplier::all(); // Ambil semua data suplier untuk dropdown nama suplier
         return view('barang.create', compact('supliers'));
     }
 

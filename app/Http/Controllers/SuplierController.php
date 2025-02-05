@@ -23,7 +23,7 @@ class SuplierController extends Controller
         'name_suplier' => 'required|string|max:255',
         'telp' => 'required|string|max:15', // Misalnya untuk nomor telepon
         'tgl_terdaftar' => 'required|date',
-        'status' => 'required|in:Aktif,Tidak Aktif', // Validasi sesuai enum
+        'status' => 'required|in:Aktif,Tidak Aktif', // Validasi sesuai enum status
     ]);
 
     Suplier::create([
